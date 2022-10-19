@@ -282,6 +282,16 @@ class HomeAssistantSkill(FallbackSkill):
         message.data["Action"] = "down"
         self._handle_light_adjust(message)
 
+    @intent_handler('turn.that.on.intent')
+    def handle_turn_that_on(self, message: Message) -> None:
+        """Handle turn that on intent"""
+        self.log.debug("Ok, I turn that light on")
+
+    @intent_handler('turn.that.off.intent')
+    def handle_turn_that_off(self, message: Message) -> None:
+        """Handle turn that off intent"""
+        self.log.debug("Ok, I turn that light off")
+
     @intent_handler('automation.intent')
     def handle_automation_intent(self, message: Message) -> None:
         """Handle automation intent."""
